@@ -1,16 +1,12 @@
 # Default size = 10M * 10 w/  #distincts per col
 # Vary string length from 25 to 500
 
-data = read("data.csv", data_type="frame", format="csv", header=FALSE);
+data = read("data_composite.csv", data_type="frame", format="csv", header=FALSE);
 allCols = "1";
 for (i in 2:ncol(data))
   allCols = allCols+","+i;
 
-recode = allCols;
-#Recode all columns (100)
-jspec1 = "{ ids:true, recode:["+recode+"]}"; #RC
-#Bin all columns (100)
-jspec2 = read("./specs/02_bin_only.json", data_type="scalar", value_type="string");
+#Bin and recode on all columns (100)
 jspec3 = read("./specs/03_composite_1.json", data_type="scalar", value_type="string")
 jspec4 = read("./specs/03_composite_2.json", data_type="scalar", value_type="string")
 jspec5 = read("./specs/03_composite_3.json", data_type="scalar", value_type="string")
@@ -21,7 +17,6 @@ jspec9 = read("./specs/03_composite_7.json", data_type="scalar", value_type="str
 jspec10 = read("./specs/03_composite_8.json", data_type="scalar", value_type="string")
 jspec11 = read("./specs/03_composite_9.json", data_type="scalar", value_type="string")
 jspec12 = read("./specs/03_composite_10.json", data_type="scalar", value_type="string")
-
 
 composite_specs = list();
 composite_specs = append(composite_specs, jspec3);
@@ -40,28 +35,6 @@ print("INPUT DATA DIMENSIONS:")
 print("("+nrow(data)+", "+ncol(data)+")");
 
 print("\n")
-print("INFO: RECDOE");
-t1 = time();
-[X, M] = transformencode(target=data, spec=jspec1);
-t2 = time();
-#R[i,1] = floor((t2-t1)/1000000);
-print("Elapsed time for recode only transformations = " +floor((t2-t1)/1000000)+ " millsec");
-print("OUTPUT DATA DIMENSIONS:")
-print("("+nrow(X)+", "+ncol(X)+")");
-print("\n")
-
-print("\n")
-print("INFO: BIN");
-t1 = time();
-[X, M] = transformencode(target=data, spec=jspec2);
-t2 = time();
-#R[i,1] = floor((t2-t1)/1000000);
-print("Elapsed time for bin only transformations = " +floor((t2-t1)/1000000)+ " millsec");
-print("OUTPUT DATA DIMENSIONS:")
-print("("+nrow(X)+", "+ncol(X)+")");
-print("\n")
-
-print("\n")
 print("INFO: COMPOSITE");
 for (i in 1:length(composite_specs)){
     jspec = composite_specs[i];
@@ -72,10 +45,6 @@ for (i in 1:length(composite_specs)){
     #R[i,1] = floor((t2-t1)/1000000);
     print("Elapsed time for encoding composite spec"+i+" = " +floor((t2-t1)/1000000)+ " millsec");
     }
-
-#R = order(target=R, by=1);
-#res = R[1:3,];
-#write(res, "stringlen_dml.dat", format="csv", sep="\t");
 
 print("\n")
 print("OUTPUT DATA DIMENSIONS:")

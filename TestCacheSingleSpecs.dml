@@ -1,0 +1,41 @@
+# Default size = 10M * 10 w/  #distincts per col
+# Vary string length from 25 to 500
+
+data = read("data_single.csv", data_type="frame", format="csv", header=FALSE);
+allCols = "1";
+for (i in 2:ncol(data))
+  allCols = allCols+","+i;
+
+recode = allCols;
+#Recode all columns (100)
+jspec1 = "{ ids:true, recode:["+recode+"]}"; #RC
+
+#Bin all columns (100)
+jspec2 = read("./specs/02_bin_only.json", data_type="scalar", value_type="string");
+
+print("\n")
+print("INPUT DATA DIMENSIONS:")
+print("("+nrow(data)+", "+ncol(data)+")");
+
+print("\n")
+print("INFO: RECDOE");
+t1 = time();
+[X, M] = transformencode(target=data, spec=jspec1);
+t2 = time();
+#R[i,1] = floor((t2-t1)/1000000);
+print("Elapsed time for recode only transformations = " +floor((t2-t1)/1000000)+ " millsec");
+print("OUTPUT DATA DIMENSIONS:")
+print("("+nrow(X)+", "+ncol(X)+")");
+print("\n")
+
+print("\n")
+print("INFO: BIN");
+t1 = time();
+[X, M] = transformencode(target=data, spec=jspec2);
+t2 = time();
+#R[i,1] = floor((t2-t1)/1000000);
+print("Elapsed time for bin only transformations = " +floor((t2-t1)/1000000)+ " millsec");
+print("OUTPUT DATA DIMENSIONS:")
+print("("+nrow(X)+", "+ncol(X)+")");
+print("\n")
+

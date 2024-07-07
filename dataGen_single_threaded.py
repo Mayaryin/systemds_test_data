@@ -143,8 +143,9 @@ def getCompositeSpec(num_columns):
 #X = getDataString()
 
 numCol = 20
-X = getDataFloat(numCol)
-X.to_csv('data.csv', index=False, header=False)
+X = getDataFloat(numCol).to_csv('data_single.csv', index=False, header=False)
+Y = getDataFloat(numCol*2).to_csv('data_composite.csv', index=False, header=False)
+
 getBinSpec(numCol)
 getCompositeSpec(numCol)
 

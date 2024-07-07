@@ -1,40 +1,30 @@
 {
     "ids": "true",
     "recode": [
-        17,
-        8,
-        10,
-        20,
-        3,
-        12,
         18,
-        6,
-        1,
-        15
+        19,
+        12,
+        5,
+        15,
+        2,
+        7,
+        16,
+        10,
+        1
     ],
     "bin": [
         {
-            "id": 31,
-            "method": "equi-width",
-            "numbins": 10
-        },
-        {
-            "id": 30,
-            "method": "equi-width",
-            "numbins": 10
-        },
-        {
-            "id": 36,
-            "method": "equi-width",
-            "numbins": 10
-        },
-        {
-            "id": 21,
-            "method": "equi-width",
-            "numbins": 10
-        },
-        {
             "id": 22,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 25,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 40,
             "method": "equi-width",
             "numbins": 10
         },
@@ -44,22 +34,32 @@
             "numbins": 10
         },
         {
-            "id": 23,
-            "method": "equi-width",
-            "numbins": 10
-        },
-        {
             "id": 26,
             "method": "equi-width",
             "numbins": 10
         },
         {
-            "id": 35,
+            "id": 32,
             "method": "equi-width",
             "numbins": 10
         },
         {
-            "id": 34,
+            "id": 24,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 27,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 38,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 35,
             "method": "equi-width",
             "numbins": 10
         }
