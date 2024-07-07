@@ -1,0 +1,67 @@
+{
+    "ids": "true",
+    "recode": [
+        9,
+        4,
+        6,
+        15,
+        2,
+        5,
+        19,
+        8,
+        1,
+        18
+    ],
+    "bin": [
+        {
+            "id": 36,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 24,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 26,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 37,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 33,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 31,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 38,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 23,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 30,
+            "method": "equi-width",
+            "numbins": 10
+        },
+        {
+            "id": 32,
+            "method": "equi-width",
+            "numbins": 10
+        }
+    ]
+}
